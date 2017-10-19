@@ -8,7 +8,7 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
-import search from "../search"
+import searchArticles from "../Search"
 // import { Input, TextArea, FormBtn } from "../../components/Form";
 
 class Articles extends Component {
@@ -84,7 +84,7 @@ class Articles extends Component {
             <Row>
               <Col size="xs-12">
                 Hello
-                  // {search}
+                  // {searchArticles}
               </Col>
             </Row>
           </Container>

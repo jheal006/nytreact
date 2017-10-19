@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../../components/Grid";
+import { Link } from "react-router-dom";
+
 import Jumbotron from "../../components/Jumbotron";
+import {Input} from "../../components/Form";
+
 import axios from "axios";
 
 
-class search extends Component {
+class searchArticles extends Component {
 
   state = {
     newArticles: [],
@@ -36,27 +40,44 @@ class search extends Component {
 
 render() {
   return (
-    <Container fluid>
-      <Row>
-        <Col size="md-12">
-          <Jumbotron>
-            <h1>New York Times Search</h1>
-          </Jumbotron>
-        </Col>
-      </Row>
-      <Row>
-        <Col size="md-12">
-          <div class="panel panel primary">
-            <div class="panel-body">
-              <h2>Top Articles</h2>
-            </div>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+    <div>
+        <Container fluid>
+            <Row>
+                <Col size="md-12">
+                    <h1 className="text-center">Search</h1>
+                    <form onSubmit={this.handleFormSubmit}>
+                        <label>Topic: {this.state.topic}</label>
+                        <Input
+                            value={this.state.topic}
+                            onChange={this.handleInputChange}
+                            name="topic"
+                            placeholder="Topic (required)"/>
+                        <label>
+                            startYear : {this.state.startDate}</label>
+                        <Input
+                            value={this.state.startDate}
+                            onChange={this.handleInputChange}
+                            type="number"
+                            min="1800"
+                            max="2017"
+                            placeholder="Start Date (required)"name="startDate"/>
+                        <label>EndYear: {this.state.endDate}</label>
+                        <Input
+                            value={this.state.endDate}
+                            onChange={this.handleInputChange}
+                            name="endDate"
+                            placeholder="End Date (required)"/>
+                        <input type="submit" value="Search"/>
+                    </form>
+                </Col>
+            </Row>
+        </Container>
+        <Container fluid>
+        </Container>
+    </div>
   );
 }
 
 
 };
-export default search;
+export default searchArticles;
