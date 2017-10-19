@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Articles from "./pages/Articles";
-import Scraper from "./pages/scraper"
+import search from "./pages/search"
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
@@ -14,7 +14,7 @@ const App = () =>
         <Route exact path="/" component={Articles} />
         <Route exact path="/articles" component={Articles} />
         <Route exact path="/articles/:id" component={Detail} />
-        <Route exact path="/scraper" component={Scraper} />
+        <Route exact path="/search" component={search} />
         <Route component={NoMatch} />
       </Switch>
     </div>
